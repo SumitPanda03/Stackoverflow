@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-
+import LoginHistory from "../models/loginHistory.js"
 import users from "../models/auth.js";
 
 export const signup = async (req, res) => {
@@ -45,6 +45,19 @@ export const login = async (req, res) => {
       { expiresIn: "1h" }
     );
     res.status(200).json({ result: existinguser, token });
+    const browser = req.useragent.browser;
+    const os = req.useragent.os;
+    const deviceType = req.useragent.isMobile ? "Mobile" : "Desktop";
+    const ip = req.ip;
+
+    const loginHistory = new LoginHistory({
+      userId: existinguser._id,
+      browser,
+      os,
+      deviceType,
+      ip,
+  });
+  await loginHistory.save();
   } catch (error) {
     res.status(500).json("Something went worng...");
   }
