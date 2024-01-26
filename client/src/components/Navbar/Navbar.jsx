@@ -57,15 +57,17 @@ const Navbar = ({ handleSlideIn }) => {
                     <div className="toggle-btn">
                         <DarkMode />
                     </div>
-                    <form>
-                        <input type="text" placeholder="Search..." />
-                        <img
-                            src={search}
-                            alt="search"
-                            width="18"
-                            className="search-icon"
-                        />
-                    </form>
+                    <div className="formnav">
+                        <form>
+                            <input type="text" placeholder="Search..." />
+                            <img
+                                src={search}
+                                alt="search"
+                                width="18"
+                                className="search-icon"
+                            />
+                        </form>
+                    </div>
                 </div>
                 <div className="navbar-2">
                     {User === null ? (
@@ -88,7 +90,7 @@ const Navbar = ({ handleSlideIn }) => {
                                         textDecoration: "none",
                                     }}
                                 >
-                                    {/* {User.result.name.charAt(0).toUpperCase()} */}
+                                    {User.result.name.charAt(0).toUpperCase()}
                                 </Link>
                             </Avatar>
                             <button
