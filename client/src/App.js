@@ -8,35 +8,40 @@ import { fetchAllQuestions } from "./actions/question";
 import { fetchAllUsers } from "./actions/users";
 
 function App() {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchAllQuestions());
-    dispatch(fetchAllUsers());
-  }, [dispatch]);
+    useEffect(() => {
+        dispatch(fetchAllQuestions());
+        dispatch(fetchAllUsers());
+    }, [dispatch]);
 
-  const [slideIn, setSlideIn] = useState(true);
+    const [slideIn, setSlideIn] = useState(true);
 
-  useEffect(() => {
-    if (window.innerWidth <= 760) {
-      setSlideIn(false);
-    }
-  }, []);
+    useEffect(() => {
+        if (window.innerWidth <= 760) {
+            setSlideIn(false);
+        }
+    }, []);
 
-  const handleSlideIn = () => {
-    if (window.innerWidth <= 760) {
-      setSlideIn((state) => !state);
-    }
-  };
+    const handleSlideIn = () => {
+        if (window.innerWidth <= 760) {
+            setSlideIn((state) => !state);
+        }
+    };
 
-  return (
-    <div className="App">
-      <Router>
-        <Navbar handleSlideIn={handleSlideIn} />
-        <AllRoutes slideIn={slideIn} handleSlideIn={handleSlideIn} />
-      </Router>
-    </div>
-  );
+    return (
+        <>
+            <div className="App">
+                <Router>
+                    <Navbar handleSlideIn={handleSlideIn} />
+                    <AllRoutes
+                        slideIn={slideIn}
+                        handleSlideIn={handleSlideIn}
+                    />
+                </Router>
+            </div>
+        </>
+    );
 }
 
 export default App;

@@ -19,7 +19,7 @@ const EditProfileForm = ({ currentUser, setSwitch }) => {
   };
 
   return (
-    <div>
+    <div className="edit-form">
       <h1 className="edit-profile-title">Edit Your Profile</h1>
       <h2 className="edit-profile-title-2">Public information</h2>
       <form className="edit-profile-form" onSubmit={handleSubmit}>

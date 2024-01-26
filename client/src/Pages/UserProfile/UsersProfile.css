@@ -5,7 +5,13 @@
   align-items: flex-start;
   justify-content: space-between;
 }
+.edit-form{
+  color: var(--body_color);
+}
 
+.user-section{
+  color: var(--body_color);
+}
 .user-details {
   display: flex;
   align-items: flex-start;

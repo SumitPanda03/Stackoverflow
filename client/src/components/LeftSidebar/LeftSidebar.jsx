@@ -24,7 +24,7 @@ const LeftSidebar = ({ slideIn, handleSlideIn }) => {
           </NavLink>
         </button>
         <div className="side-nav-div">
-          <div>
+          <div className="public">
             <p>PUBLIC</p>
           </div>
           <button onClick={() => handleSlideIn()} className="nav-btn">

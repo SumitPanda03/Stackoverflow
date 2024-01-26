@@ -3,7 +3,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 30px;
+  color: var(--body_color);
+
 }
+
 
 .user-profile-link {
   display: flex;
@@ -21,4 +24,10 @@
 
 .user-profile-link h5 {
   margin: 0px 10px;
+  color: var(--body_color);
+
+}
+
+.home-container-2 h1{
+  color: var(--body_color);
 }

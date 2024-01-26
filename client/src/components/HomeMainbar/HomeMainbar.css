@@ -3,6 +3,8 @@
   float: left;
   margin: 25px 0px;
   padding: 0;
+  background-color: var(--body_background);
+  color: var(--body_color);
 }
 
 .main-bar-header {
@@ -19,7 +21,7 @@
   padding: 10px 15px;
   border-radius: 4px;
   background-color: #009dff;
-  color: white;
+  color: var(--body_background);
   border: none;
   text-decoration: none;
   transition: 0.3s;
@@ -34,7 +36,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: #fdf7e2;
+  background-color: var(--yellow_lighter);
   border-bottom: solid 1px #edeff0;
 }
 
@@ -55,12 +57,12 @@
 
 .question-title-link {
   text-decoration: none;
-  color: #037ecb;
+  color: var(--link_color);
   transition: 0.3s;
 }
 
 .question-title-link:hover {
-  color: #009dff;
+  color: var(--link_color);
 }
 
 .display-tags-time .display-tags {

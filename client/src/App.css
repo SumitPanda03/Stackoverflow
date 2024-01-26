@@ -5,18 +5,21 @@
   display: flex;
   justify-content: space-between;
   margin: 0% auto;
-}
 
+}
+.App{
+  background-color: var(--body_background);
+}
 .home-container-2 {
   max-width: 1100px;
   width: calc(100% - 164px);
   padding: 24px;
   box-sizing: border-box;
 }
-
 @media screen and (max-width: 760px) {
   .home-container-2 {
     max-width: 100%;
     width: 100%;
   }
 }
+

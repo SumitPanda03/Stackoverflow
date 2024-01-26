@@ -3,6 +3,7 @@
   float: left;
   margin: 25px 0px;
   padding: 0px;
+  color: var(--body_color);
 }
 
 .question-details-container {
@@ -16,6 +17,11 @@
 .question-votes {
   padding: 5px 20px 5px 10px;
 }
+
+.question-votes img{
+  filter: invert(50%);
+}
+
 .question-votes p {
   margin: 0%;
   font-size: 25px;

@@ -1,6 +1,6 @@
 .ask-question {
   min-height: 80vh;
-  background-color: #f1f2f3;
+  background-color: var(--body_background);
 }
 
 .ask-ques-container {
@@ -11,6 +11,7 @@
 
 .ask-ques-container h1 {
   padding: 80px 0px 20px 0px;
+  color: var(--body_color);
 }
 
 .ask-ques-container form .ask-form-container {

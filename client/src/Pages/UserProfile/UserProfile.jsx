@@ -22,7 +22,7 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
     <div className="home-container-1">
       <LeftSidebar slideIn={slideIn} handleSlideIn={handleSlideIn} />
       <div className="home-container-2">
-        <section>
+        <section className="user-section">
           <div className="user-details-container">
             <div className="user-details">
               <Avatar

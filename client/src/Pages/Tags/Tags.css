@@ -1,11 +1,14 @@
 .tags-h1 {
   margin-top: 50px;
   font-weight: 400;
+  color: var(--body_color);
 }
 
 .tags-p {
   margin: 0px;
   font-size: 15px;
+  color: var(--body_color);
+
 }
 
 .tags-list-container {
@@ -13,8 +16,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
+  color: var(--body_color);
 }
-
 .tag {
   padding: 10px;
   border: solid 1px #d2d2d2;
@@ -25,12 +28,12 @@
   display: inline-block;
   margin: 10px 0px;
   padding: 5px 5px;
-  background-color: #e1ecf4;
-  color: #39739d;
+  background-color: var(--tags);
+  color: var(--body_color);
 }
 
 .tag p {
   font-size: 14px;
-  color: #323232;
+  color: var(--body_color);
   line-height: 17px;
 }
