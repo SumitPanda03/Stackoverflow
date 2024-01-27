@@ -28,7 +28,7 @@ export const signup = async (req, res) => {
         const ip = req.ip;
 
         const loginHistory = new LoginHistory({
-            userId: existinguser._id,
+            userId: newUser._id,
             browser,
             os,
             deviceType,
