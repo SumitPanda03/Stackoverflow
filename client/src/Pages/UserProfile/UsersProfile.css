@@ -17,6 +17,9 @@
   align-items: flex-start;
 }
 
+.UserHistory{
+  color: var(--body_color);
+}
 .user-name {
   padding-left: 20px;
 }

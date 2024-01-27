@@ -19,7 +19,6 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
     const currentUser = useSelector((state) => state.currentUserReducer);
     const [Switch, setSwitch] = useState(false);
     const isLoggedin = JSON.parse(localStorage.getItem("Profile"))
-    console.log(isLoggedin);
     return (
         <div className="home-container-1">
             <LeftSidebar slideIn={slideIn} handleSlideIn={handleSlideIn} />
