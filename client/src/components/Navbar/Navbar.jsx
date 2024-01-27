@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import decode from "jwt-decode";
 import DarkMode from "../ColorToggle/DarkMode";
+import DarkMode2 from "../ColorToggle/DarkMode2";
 import logo from "../../assets/logo.png";
 import search from "../../assets/search-solid.svg";
 import Avatar from "../../components/Avatar/Avatar";
@@ -60,6 +61,7 @@ const Navbar = ({ handleSlideIn }) => {
                     </Link>
                     <div className="toggle-btn">
                         <DarkMode />
+                        <DarkMode2/>
                     </div>
                     <div className="formnav">
                         <form>
