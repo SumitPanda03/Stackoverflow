@@ -14,7 +14,7 @@ const DarkMode = () => {
 
     const toggleTheme = () => {
         const currentHour = new Date().getHours();
-        if (currentHour >= 0 && currentHour < 12) {
+        if (currentHour >= 6 && currentHour < 17) {
             setLightMode();
         } else {
             setDarkMode();
