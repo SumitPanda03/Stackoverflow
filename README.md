@@ -1,4 +1,4 @@
-# Stack Overflow Clone
+# TechLink Website
 
 This website is a question forum and made to look like Stack Overflow.
 It has 3 extra features:
@@ -38,11 +38,13 @@ npm install
 - Start App using the command
 
 ```
+cd client
 npm start
 ```
-
-## Pics of the application
-
+```
+cd server
+npm run dev
+```
 
 ## Live Link for the website:
 
