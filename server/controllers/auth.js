@@ -22,23 +22,9 @@ export const signup = async (req, res) => {
             process.env.JWT_SECRET,
             { expiresIn: "1h" }
         );
-        const browser = req.useragent.browser;
-        const os = req.useragent.os;
-        const deviceType = req.useragent.isMobile ? "Mobile" : "Desktop";
-        const ip = req.ip;
-
-        const loginHistory = new LoginHistory({
-            userId: newUser._id,
-            browser,
-            os,
-            deviceType,
-            ip,
-        });
-        await loginHistory.save();
-
-        res.status(200).json({ result: newUser, token, "loginHistory":loginHistory });
+        res.status(200).json({ result: newUser, token });
     } catch (error) {
-        res.status(500).json("Something went wrong...");
+        res.status(500).json("Something went worng...");
     }
 };
 
