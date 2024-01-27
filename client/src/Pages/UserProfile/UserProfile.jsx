@@ -10,6 +10,8 @@ import Avatar from "../../components/Avatar/Avatar";
 import EditProfileForm from "./EditProfileForm";
 import ProfileBio from "./ProfileBio";
 import "./UsersProfile.css";
+import UserHistory from "./UserHistory";
+
 
 const UserProfile = ({ slideIn, handleSlideIn }) => {
   const { id } = useParams();
@@ -52,6 +54,7 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
               </button>
             )}
           </div>
+
           <>
             {Switch ? (
               <EditProfileForm
@@ -62,6 +65,9 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
               <ProfileBio currentProfile={currentProfile} />
             )}
           </>
+          {currentUser.result._id === id && (
+            <UserHistory/>
+          )}
         </section>
       </div>
     </div>

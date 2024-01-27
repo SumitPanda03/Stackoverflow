@@ -11,7 +11,7 @@ import Users from "./Pages/Users/Users";
 import UserProfile from "./Pages/UserProfile/UserProfile";
 import Player from "./Pages/Player/Player";
 import CustomVideoPlayer from "./components/VideoPlayer/VideoPlayer";
-
+import UserHistory from './Pages/UserProfile/UserHistory'
 const AllRoutes = ({ slideIn, handleSlideIn }) => {
     return (
         <Routes>
@@ -23,6 +23,8 @@ const AllRoutes = ({ slideIn, handleSlideIn }) => {
             />
             <Route path="/Player" element={<Player />} />
             <Route path="/Auth" element={<Auth />} />
+            <Route path="/History" element={<UserHistory />} />
+
             <Route path="/AskQuestion" element={<AskQuestion />} />
             <Route
                 path="/Questions"

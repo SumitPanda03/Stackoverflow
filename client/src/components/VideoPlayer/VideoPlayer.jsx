@@ -14,12 +14,12 @@ const CustomVideoPlayer = () => {
       const playerRect = player.getInternalPlayer().getBoundingClientRect();
       const relativeX = e.clientX - playerRect.left;
 
-      if (relativeX > playerRect.width / 2 && relativeX <= playerRect.width) {
-        // Double tap on right to move 10 seconds forward
-        player.seekTo(player.getCurrentTime() + 10);
-      } else if(relativeX <= playerRect.width / 2 && relativeX >= 0) {
+      if (relativeX > 0 && relativeX <= playerRect.width / 2) {
         // Double tap on left to move 5 seconds backward
         player.seekTo(player.getCurrentTime() - 5);
+      } else if (relativeX > playerRect.width / 2 && relativeX <= playerRect.width) {
+        // Double tap on right to move 10 seconds forward
+        player.seekTo(player.getCurrentTime() + 10);
       }
 
       e.preventDefault();
@@ -40,28 +40,24 @@ const CustomVideoPlayer = () => {
       const playerRect = player.getInternalPlayer().getBoundingClientRect();
       const startX = e.clientX - playerRect.left;
 
-      if (startX > playerRect.width / 2) {
-        // Press and hold on right side to go forward at 2x speed
-        isForward = true;
-      } else {
-        // Press and hold on left side to go back at 1x speed
-        isForward = false;
-      }
+      isForward = startX > playerRect.width / 2;
 
       const handleMouseMove = (e) => {
         const currentX = e.clientX - playerRect.left;
         const diffX = currentX - startX;
 
         const speed = isForward ? 2 : -1;
-        player.setPlaybackRate(isForward ? 2 : 0.5);
         player.seekTo(player.getCurrentTime() + speed * Math.abs(diffX) / 100);
+
+        // Set playback rate dynamically
+        player.setPlaybackRate(isForward ? 2 : 1);
       };
 
       const handleMouseUp = () => {
         document.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseup', handleMouseUp);
 
-        // Reset playback rate to 1x when mouse is released
+        // Reset playback rate to default when mouse is released
         player.setPlaybackRate(1);
       };
 
