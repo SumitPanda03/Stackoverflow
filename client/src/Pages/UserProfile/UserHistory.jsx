@@ -5,9 +5,9 @@ import * as api from "../../api/index";
 const user = localStorage.getItem("Profile");
 const userProfile = JSON.parse(user);
 const loginHistory = userProfile?.loginHistory;
-console.log(loginHistory);
+// console.log(loginHistory);
 // console.log((user.result.loginHistory));
-console.log(user.result);
+// console.log(user.result);
 const UserHistory = () => {
     return (
         <div className="UserHistory">
