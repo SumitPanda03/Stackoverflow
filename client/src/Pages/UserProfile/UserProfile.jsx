@@ -12,66 +12,65 @@ import ProfileBio from "./ProfileBio";
 import "./UsersProfile.css";
 import UserHistory from "./UserHistory";
 
-
 const UserProfile = ({ slideIn, handleSlideIn }) => {
-  const { id } = useParams();
-  const users = useSelector((state) => state.usersReducer);
-  const currentProfile = users.filter((user) => user._id === id)[0];
-  const currentUser = useSelector((state) => state.currentUserReducer);
-  const [Switch, setSwitch] = useState(false);
+    const { id } = useParams();
+    const users = useSelector((state) => state.usersReducer);
+    const currentProfile = users.filter((user) => user._id === id)[0];
+    const currentUser = useSelector((state) => state.currentUserReducer);
+    const [Switch, setSwitch] = useState(false);
+    const isLoggedin = JSON.parse(localStorage.getItem("Profile"))
+    console.log(isLoggedin);
+    return (
+        <div className="home-container-1">
+            <LeftSidebar slideIn={slideIn} handleSlideIn={handleSlideIn} />
+            <div className="home-container-2">
+                <section className="user-section">
+                    <div className="user-details-container">
+                        <div className="user-details">
+                            <Avatar
+                                backgroundColor="purple"
+                                color="white"
+                                fontSize="50px"
+                                px="40px"
+                                py="30px"
+                            >
+                                {currentProfile?.name.charAt(0).toUpperCase()}
+                            </Avatar>
+                            <div className="user-name">
+                                <h1>{currentProfile?.name}</h1>
+                                <p>
+                                    <FontAwesomeIcon icon={faBirthdayCake} />{" "}
+                                    Joined{" "}
+                                    {moment(currentProfile?.joinedOn).fromNow()}
+                                </p>
+                            </div>
+                        </div>
+                        {currentUser?.result._id === id && (
+                            <button
+                                type="button"
+                                onClick={() => setSwitch(true)}
+                                className="edit-profile-btn"
+                            >
+                                <FontAwesomeIcon icon={faPen} /> Edit Profile
+                            </button>
+                        )}
+                    </div>
 
-  return (
-    <div className="home-container-1">
-      <LeftSidebar slideIn={slideIn} handleSlideIn={handleSlideIn} />
-      <div className="home-container-2">
-        <section className="user-section">
-          <div className="user-details-container">
-            <div className="user-details">
-              <Avatar
-                backgroundColor="purple"
-                color="white"
-                fontSize="50px"
-                px="40px"
-                py="30px"
-              >
-                {currentProfile?.name.charAt(0).toUpperCase()}
-              </Avatar>
-              <div className="user-name">
-                <h1>{currentProfile?.name}</h1>
-                <p>
-                  <FontAwesomeIcon icon={faBirthdayCake} /> Joined{" "}
-                  {moment(currentProfile?.joinedOn).fromNow()}
-                </p>
-              </div>
+                    <>
+                        {Switch ? (
+                            <EditProfileForm
+                                currentUser={currentUser}
+                                setSwitch={setSwitch}
+                            />
+                        ) : (
+                            <ProfileBio currentProfile={currentProfile} />
+                        )}
+                    </>
+                    {((JSON.parse(currentUser.result._id) === id) && isLoggedin.loginHistory) && <UserHistory />}
+                </section>
             </div>
-            {currentUser?.result._id === id && (
-              <button
-                type="button"
-                onClick={() => setSwitch(true)}
-                className="edit-profile-btn"
-              >
-                <FontAwesomeIcon icon={faPen} /> Edit Profile
-              </button>
-            )}
-          </div>
-
-          <>
-            {Switch ? (
-              <EditProfileForm
-                currentUser={currentUser}
-                setSwitch={setSwitch}
-              />
-            ) : (
-              <ProfileBio currentProfile={currentProfile} />
-            )}
-          </>
-          {currentUser.result._id === id && (
-            <UserHistory/>
-          )}
-        </section>
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default UserProfile;

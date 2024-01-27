@@ -12,7 +12,7 @@ const UserHistory = () => {
     return (
         <div className="UserHistory">
             <h3>Login History:</h3>
-            {/* <p>User ID: {loginHistory.userId}</p> */}
+            <p>User ID: {loginHistory.userId}</p>
             <p>Browser: {loginHistory.browser}</p>
             <p>OS: {loginHistory.os}</p>
             <p>Device Type: {loginHistory.deviceType}</p>
