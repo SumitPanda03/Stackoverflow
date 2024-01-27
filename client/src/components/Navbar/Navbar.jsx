@@ -10,7 +10,7 @@ import Avatar from "../../components/Avatar/Avatar";
 import "./Navbar.css";
 import { setCurrentUser } from "../../actions/currentUser";
 import bars from "../../assets/bars-solid.svg";
-import Player from '../../Pages/Player/Player'
+import Player from "../../Pages/Player/Player";
 
 const Navbar = ({ handleSlideIn }) => {
     const dispatch = useDispatch();
@@ -61,7 +61,7 @@ const Navbar = ({ handleSlideIn }) => {
                     </Link>
                     <div className="toggle-btn">
                         <DarkMode />
-                        <DarkMode2/>
+                        <DarkMode2 />
                     </div>
                     <div className="formnav">
                         <form>
