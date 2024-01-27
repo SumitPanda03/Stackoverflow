@@ -1,5 +1,5 @@
 import React from "react";
-import { login,signup } from "../../actions/auth";
+import { login } from "../../actions/auth";
 import * as api from "../../api/index";
 
 const user = localStorage.getItem("Profile");
