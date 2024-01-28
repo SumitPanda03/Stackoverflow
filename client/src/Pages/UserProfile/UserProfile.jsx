@@ -18,7 +18,7 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
     const currentProfile = users.filter((user) => user._id === id)[0];
     const currentUser = useSelector((state) => state.currentUserReducer);
     const [Switch, setSwitch] = useState(false);
-    const isLoggedin = JSON.parse(localStorage.getItem("Profile"))
+    const isLoggedin = JSON.parse(localStorage.getItem("Profile"));
     return (
         <div className="home-container-1">
             <LeftSidebar slideIn={slideIn} handleSlideIn={handleSlideIn} />
@@ -54,7 +54,6 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
                             </button>
                         )}
                     </div>
-
                     <>
                         {Switch ? (
                             <EditProfileForm
@@ -65,7 +64,26 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
                             <ProfileBio currentProfile={currentProfile} />
                         )}
                     </>
-                    {((JSON.parse(currentUser.result._id) === id) && isLoggedin.loginHistory) && <UserHistory />}
+                    {/* {((JSON.parse(currentUser.result._id) === id) && (isLoggedin.loginHistory)) ? <UserHistory /> : "Please Login"} */}
+
+                    {currentUser && currentUser.result ? (
+                        currentUser.result._id === id &&
+                        isLoggedin.loginHistory ? (
+                            <UserHistory />
+                        ) : (
+                            "Please Login"
+                        )
+                    ) : (
+                        // Render a simple JSX when currentUser or currentUser.result is null or undefined
+                        <div>
+                            <p>
+                                <h4>
+                                    PLEASE LOGIN TO SEE YOUR LOGIN HISTORY
+                                    DETAILS
+                                </h4>
+                            </p>
+                        </div>
+                    )}
                 </section>
             </div>
         </div>
