@@ -20,8 +20,11 @@ app.use(useragent.express());
 //     res.send("This is a stack overflow clone API")
 // })
 app.get('/', (req,res) => {
-  const endpoints = expressListEndpoints(app);
-  res.json("Backend Server, Check out other API's",endpoints);
+  const response = {
+    message: 'List of Endpoints:',
+    paths: ['/user/getAllUsers', '/login', '/answer'],
+  };
+  res.json(response);
 })
 app.use("/user", userRoutes);
 app.use("/questions", questionRoutes);
